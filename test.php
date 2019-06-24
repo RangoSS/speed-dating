@@ -42,7 +42,7 @@
 </div>
  
  
-<form action="idex.php" name="form1" id="form1"><!-- is going to call this for refresh-->
+<form action="test.php" name="form1" id="form1"><!-- is going to call this for refresh-->
   
 
 </body>
@@ -58,7 +58,8 @@
  });
 
  function getRando(){
-      secondPassed();
+    var countdownTimer = setInterval('secondPassed()', 1000);
+
 
     $.ajax({
       url:"http://localhost/REST_API_SPEED_DATING/api.php?action=display_game",
@@ -71,7 +72,7 @@
       });
 }
 //timer
- var seconds = 300;
+ var seconds = 100;   //this is my seconds
       function secondPassed() {
           var minutes = Math.round((seconds - 30)/60);
               remainingSeconds = seconds % 60;
@@ -84,13 +85,12 @@
           if (seconds == 0) {
               clearInterval(countdownTimer);
              //form1 is your form name
-             $('.err').show();
+             alert("you are out of time .please press play to play again");
             document.form1.submit();
           } else {
               seconds--;
           }
       }
-      var countdownTimer = setInterval('secondPassed()', 1000);
-
+      
  
 </script>
