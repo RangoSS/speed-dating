@@ -32,3 +32,8 @@ h1 {
 h2 {
   font-weight: bold;
 }
+
+.timer {
+    width: 100px;
+    text-align: center;
+}

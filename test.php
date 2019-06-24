@@ -58,8 +58,8 @@
  });
 
  function getRando(){
-    
- var countdownTimer = setInterval('secondPassed()', 1000);//we called the function on setInterval function  
+      secondPassed();
+
     $.ajax({
       url:"http://localhost/REST_API_SPEED_DATING/api.php?action=display_game",
       method: "POST",
@@ -83,16 +83,14 @@
           document.getElementById('countdown').innerHTML = minutes + ":" + remainingSeconds;
           if (seconds == 0) {
               clearInterval(countdownTimer);
-  
-            
              //form1 is your form name
+             $('.err').show();
             document.form1.submit();
           } else {
               seconds--;
           }
-
       }
-      
-     
+      var countdownTimer = setInterval('secondPassed()', 1000);
+
  
 </script>
